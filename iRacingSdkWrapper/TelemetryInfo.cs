@@ -16,109 +16,6 @@ namespace iRacingSdkWrapper
             this.sdk = sdk;
         }
 
-        public IEnumerable<TelemetryValue> GetValues()
-        {
-            var values = new List<TelemetryValue>();
-            values.AddRange(new TelemetryValue[]
-                                {
-                                    this.SessionTime,
-                                    this.SessionNum,
-                                    this.SessionState,
-                                    this.SessionUniqueID,
-                                    this.SessionFlags,
-                                    this.DriverMarker,
-                                    this.IsReplayPlaying,
-                                    this.ReplayFrameNum,
-                                    this.CarIdxLap,
-                                    this.CarIdxLapCompleted,
-                                    this.CarIdxLapDistPct,
-                                    this.CarIdxTrackSurface,
-                                    this.CarIdxSteer,
-                                    this.CarIdxRPM,
-                                    this.CarIdxGear,
-                                    this.CarIdxF2Time,
-                                    this.CarIdxEstTime,
-                                    this.CarIdxOnPitRoad,
-                                    this.CarIdxPosition,
-                                    this.CarIdxClassPosition,
-                                    this.SteeringWheelAngle,
-                                    this.Throttle,
-                                    this.Brake,
-                                    this.Clutch,
-                                    this.Gear,
-                                    this.RPM,
-                                    this.Lap,
-                                    this.LapDist,
-                                    this.LapDistPct,
-                                    this.RaceLaps,
-                                    this.LongAccel,
-                                    this.LatAccel,
-                                    this.VertAccel,
-                                    this.RollRate,
-                                    this.PitchRate,
-                                    this.YawRate,
-                                    this.Speed,
-                                    this.VelocityX,
-                                    this.VelocityY,
-                                    this.VelocityZ,
-                                    this.Yaw,
-                                    this.Pitch,
-                                    this.Roll,
-                                    this.CamCarIdx,
-                                    this.CamCameraNumber,
-                                    this.CamCameraState,
-                                    this.CamGroupNumber,
-                                    this.IsOnTrack,
-                                    this.IsInGarage,
-                                    this.SteeringWheelTorque,
-                                    this.SteeringWheelPctTorque,
-                                    this.ShiftIndicatorPct,
-                                    this.EngineWarnings,
-                                    this.FuelLevel,
-                                    this.FuelLevelPct,
-                                    this.ReplayPlaySpeed,
-                                    this.ReplaySessionTime,
-                                    this.ReplaySessionNum,
-                                    this.WaterTemp,
-                                    this.WaterLevel,
-                                    this.FuelPress,
-                                    this.OilTemp,
-                                    this.OilPress,
-                                    this.OilLevel,
-                                    this.Voltage,
-                                    this.SessionTimeRemain,
-                                    this.ReplayFrameNumEnd,
-                                    this.AirDensity,
-                                    this.AirPressure,
-                                    this.AirTemp,
-                                    this.FogLevel,
-                                    this.Skies,
-                                    this.TrackTemp,
-                                    this.TrackTempCrew,
-                                    this.RelativeHumidity,
-                                    this.WeatherType,
-                                    this.WindDir,
-                                    this.WindVel,
-                                    this.MGUKDeployAdapt,
-                                    this.MGUKDeployFixed,
-                                    this.MGUKRegenGain,
-                                    this.EnergyBatteryToMGU,
-                                    this.EnergyBudgetBattToMGU,
-                                    this.EnergyERSBattery,
-                                    this.PowerMGUH,
-                                    this.PowerMGUK,
-                                    this.TorqueMGUK,
-                                    this.DrsStatus,
-                                    this.LapCompleted,
-                                    this.PlayerCarDriverIncidentCount,
-                                    this.PlayerCarTeamIncidentCount,
-                                    this.PlayerCarMyIncidentCount,
-                                    this.PlayerTrackSurface,
-                                    this.PlayerCarIdx
-                                });
-            return values;
-        }
-
         public TelemetryValue<float> MGUKDeployAdapt { get { return new TelemetryValue<float>(sdk, "dcMGUKDeployAdapt"); } }
 
         public TelemetryValue<float> MGUKDeployFixed { get { return new TelemetryValue<float>(sdk, "dcMGUKDeployFixed"); } }
@@ -155,7 +52,7 @@ namespace iRacingSdkWrapper
 
 
         /// <summary>
-        /// Session number. 
+        /// Session number.
         /// </summary>
         public TelemetryValue<int> SessionNum { get { return new TelemetryValue<int>(sdk, "SessionNum"); } }
 
@@ -167,7 +64,7 @@ namespace iRacingSdkWrapper
 
 
         /// <summary>
-        /// Session ID. 
+        /// Session ID.
         /// </summary>
         public TelemetryValue<int> SessionUniqueID { get { return new TelemetryValue<int>(sdk, "SessionUniqueID"); } }
 
@@ -179,19 +76,19 @@ namespace iRacingSdkWrapper
 
 
         /// <summary>
-        /// Driver activated flag. 
+        /// Driver activated flag.
         /// </summary>
         public TelemetryValue<bool> DriverMarker { get { return new TelemetryValue<bool>(sdk, "DriverMarker"); } }
 
 
         /// <summary>
-        /// 0=replay not playing  1=replay playing. 
+        /// 0=replay not playing  1=replay playing.
         /// </summary>
         public TelemetryValue<bool> IsReplayPlaying { get { return new TelemetryValue<bool>(sdk, "IsReplayPlaying"); } }
 
 
         /// <summary>
-        /// Integer replay frame number (60 per second). 
+        /// Integer replay frame number (60 per second).
         /// </summary>
         public TelemetryValue<int> ReplayFrameNum { get { return new TelemetryValue<int>(sdk, "ReplayFrameNum"); } }
 
@@ -231,7 +128,7 @@ namespace iRacingSdkWrapper
 
 
         /// <summary>
-        /// -1=reverse  0=neutral  1..n=current gear by car index. 
+        /// -1=reverse  0=neutral  1..n=current gear by car index.
         /// </summary>
         public TelemetryValue<int[]> CarIdxGear { get { return new TelemetryValue<int[]>(sdk, "CarIdxGear"); } }
 
@@ -239,11 +136,35 @@ namespace iRacingSdkWrapper
 
         public TelemetryValue<float[]> CarIdxEstTime { get { return new TelemetryValue<float[]>(sdk, "CarIdxEstTime"); } }
 
+        public TelemetryValue<float[]> CarIdxLastLapTime { get { return new TelemetryValue<float[]>(sdk, "CarIdxLastLapTime"); } }
+
+        public TelemetryValue<float[]> CarIdxBestLapTime { get { return new TelemetryValue<float[]>(sdk, "CarIdxBestLapTime"); } }
+
+        public TelemetryValue<int[]> CarIdxBestLapNum { get { return new TelemetryValue<int[]>(sdk, "CarIdxBestLapNum"); } }
+
         public TelemetryValue<bool[]> CarIdxOnPitRoad { get { return new TelemetryValue<bool[]>(sdk, "CarIdxOnPitRoad"); } }
 
         public TelemetryValue<int[]> CarIdxPosition { get { return new TelemetryValue<int[]>(sdk, "CarIdxPosition"); } }
 
         public TelemetryValue<int[]> CarIdxClassPosition { get { return new TelemetryValue<int[]>(sdk, "CarIdxClassPosition"); } }
+
+        public TelemetryValue<int[]> CarIdxClass { get { return new TelemetryValue<int[]>(sdk, "CarIdxClass"); } }
+
+        public TelemetryValue<int[]> CarIdxTireCompound { get { return new TelemetryValue<int[]>(sdk, "CarIdxTireCompound"); } }
+
+        public TelemetryValue<int[]> CarIdxQualTireCompound { get { return new TelemetryValue<int[]>(sdk, "CarIdxQualTireCompound"); } }
+
+        public TelemetryValue<bool[]> CarIdxQualTireCompoundLocked { get { return new TelemetryValue<bool[]>(sdk, "CarIdxQualTireCompoundLocked"); } }
+
+        public TelemetryValue<int[]> CarIdxFastRepairsUsed { get { return new TelemetryValue<int[]>(sdk, "CarIdxFastRepairsUsed"); } }
+
+        public TelemetryValue<int[]> CarIdxPaceLine { get { return new TelemetryValue<int[]>(sdk, "CarIdxPaceLine"); } }
+
+        public TelemetryValue<int[]> CarIdxPaceRow { get { return new TelemetryValue<int[]>(sdk, "CarIdxPaceRow"); } }
+
+        public TelemetryValue<bool[]> CarIdxP2P_Status { get { return new TelemetryValue<bool[]>(sdk, "CarIdxP2P_Status"); } }
+
+        public TelemetryValue<int[]> CarIdxP2P_Count { get { return new TelemetryValue<int[]>(sdk, "CarIdxP2P_Count"); } }
 
 
         /// <summary>
@@ -271,7 +192,7 @@ namespace iRacingSdkWrapper
 
 
         /// <summary>
-        /// -1=reverse  0=neutral  1..n=current gear. 
+        /// -1=reverse  0=neutral  1..n=current gear.
         /// </summary>
         public TelemetryValue<int> Gear { get { return new TelemetryValue<int>(sdk, "Gear"); } }
 
@@ -283,7 +204,7 @@ namespace iRacingSdkWrapper
 
 
         /// <summary>
-        /// Lap count. 
+        /// Lap count.
         /// </summary>
         public TelemetryValue<int> Lap { get { return new TelemetryValue<int>(sdk, "Lap"); } }
 
@@ -301,7 +222,7 @@ namespace iRacingSdkWrapper
 
 
         /// <summary>
-        /// Laps completed in race. 
+        /// Laps completed in race.
         /// </summary>
         public TelemetryValue<int> RaceLaps { get { return new TelemetryValue<int>(sdk, "RaceLaps"); } }
 
@@ -385,19 +306,19 @@ namespace iRacingSdkWrapper
 
 
         /// <summary>
-        /// Active camera's focus car index. 
+        /// Active camera's focus car index.
         /// </summary>
         public TelemetryValue<int> CamCarIdx { get { return new TelemetryValue<int>(sdk, "CamCarIdx"); } }
 
 
         /// <summary>
-        /// Active camera number. 
+        /// Active camera number.
         /// </summary>
         public TelemetryValue<int> CamCameraNumber { get { return new TelemetryValue<int>(sdk, "CamCameraNumber"); } }
 
 
         /// <summary>
-        /// Active camera group number. 
+        /// Active camera group number.
         /// </summary>
         public TelemetryValue<int> CamGroupNumber { get { return new TelemetryValue<int>(sdk, "CamGroupNumber"); } }
 
@@ -409,13 +330,13 @@ namespace iRacingSdkWrapper
 
 
         /// <summary>
-        /// 1=Car on track physics running. 
+        /// 1=Car on track physics running.
         /// </summary>
         public TelemetryValue<bool> IsOnTrack { get { return new TelemetryValue<bool>(sdk, "IsOnTrack"); } }
 
 
         /// <summary>
-        /// 1=Car in garage physics running. 
+        /// 1=Car in garage physics running.
         /// </summary>
         public TelemetryValue<bool> IsInGarage { get { return new TelemetryValue<bool>(sdk, "IsInGarage"); } }
 
@@ -457,13 +378,13 @@ namespace iRacingSdkWrapper
 
 
         /// <summary>
-        /// Replay playback speed. 
+        /// Replay playback speed.
         /// </summary>
         public TelemetryValue<int> ReplayPlaySpeed { get { return new TelemetryValue<int>(sdk, "ReplayPlaySpeed"); } }
 
 
         /// <summary>
-        /// 0=not slow motion  1=replay is in slow motion. 
+        /// 0=not slow motion  1=replay is in slow motion.
         /// </summary>
         public TelemetryValue<bool> ReplayPlaySlowMotion { get { return new TelemetryValue<bool>(sdk, "ReplayPlaySlowMotion"); } }
 
@@ -475,7 +396,7 @@ namespace iRacingSdkWrapper
 
 
         /// <summary>
-        /// Replay session number. 
+        /// Replay session number.
         /// </summary>
         public TelemetryValue<int> ReplaySessionNum { get { return new TelemetryValue<int>(sdk, "ReplaySessionNum"); } }
 
@@ -556,5 +477,209 @@ namespace iRacingSdkWrapper
         public TelemetryValue<TrackSurfaces> PlayerTrackSurface { get { return new TelemetryValue<TrackSurfaces>(sdk, "PlayerTrackSurface"); } }
 
         public TelemetryValue<int> PlayerCarIdx { get { return new TelemetryValue<int>(sdk, "PlayerCarIdx"); } }
+
+        public TelemetryValue<float> PitSvFuel { get { return new TelemetryValue<float>(sdk, "PitSvFuel"); } }
+
+        public TelemetryValue<float> PitOptRepairLeft { get { return new TelemetryValue<float>(sdk, "PitOptRepairLeft"); } }
+
+        public TelemetryValue<float> PitRepairLeft { get { return new TelemetryValue<float>(sdk, "PitRepairLeft"); } }
+
+        public TelemetryValue<int> PlayerCarClassPosition { get { return new TelemetryValue<int>(sdk, "PlayerCarClassPosition"); } }
+
+        public TelemetryValue<int> PlayerCarPosition { get { return new TelemetryValue<int>(sdk, "PlayerCarPosition"); } }
+
+        public TelemetryValue<int> SessionLapsRemainEx { get { return new TelemetryValue<int>(sdk, "SessionLapsRemainEx"); } }
+
+        public TelemetryValue<double> SessionTimeTotal { get { return new TelemetryValue<double>(sdk, "SessionTimeTotal"); } }
+
+        public TelemetryValue<int> SessionLapsTotal { get { return new TelemetryValue<int>(sdk, "SessionLapsTotal"); } }
+
+        public TelemetryValue<float> SessionTimeOfDay { get { return new TelemetryValue<float>(sdk, "SessionTimeOfDay"); } }
+
+        public TelemetryValue<int> RadioTransmitCarIdx { get { return new TelemetryValue<int>(sdk, "RadioTransmitCarIdx"); } }
+
+        public TelemetryValue<bool> PushToPass { get { return new TelemetryValue<bool>(sdk, "PushToPass"); } }
+
+        public TelemetryValue<bool> ManualBoost { get { return new TelemetryValue<bool>(sdk, "ManualBoost"); } }
+
+        public TelemetryValue<bool> ManualNoBoost { get { return new TelemetryValue<bool>(sdk, "ManualNoBoost"); } }
+
+        public TelemetryValue<int> PlayerCarClass { get { return new TelemetryValue<int>(sdk, "PlayerCarClass"); } }
+
+        public TelemetryValue<float> PlayerCarWeightPenalty { get { return new TelemetryValue<float>(sdk, "PlayerCarWeightPenalty"); } }
+
+        public TelemetryValue<float> PlayerCarPowerAdjust { get { return new TelemetryValue<float>(sdk, "PlayerCarPowerAdjust"); } }
+
+        public TelemetryValue<float> PlayerCarTowTime { get { return new TelemetryValue<float>(sdk, "PlayerCarTowTime"); } }
+
+        public TelemetryValue<bool> PlayerCarInPitStall { get { return new TelemetryValue<bool>(sdk, "PlayerCarInPitStall"); } }
+
+        public TelemetryValue<int> PlayerCarDryTireSetLimit { get { return new TelemetryValue<int>(sdk, "PlayerCarDryTireSetLimit"); } }
+
+        public TelemetryValue<int> PlayerTireCompound { get { return new TelemetryValue<int>(sdk, "PlayerTireCompound"); } }
+
+        public TelemetryValue<int> PlayerFastRepairsUsed { get { return new TelemetryValue<int>(sdk, "PlayerFastRepairsUsed"); } }
+
+        public TelemetryValue<bool> PitsOpen { get { return new TelemetryValue<bool>(sdk, "PitsOpen"); } }
+
+        public TelemetryValue<bool> PitstopActive { get { return new TelemetryValue<bool>(sdk, "PitstopActive"); } }
+
+        public TelemetryValue<int> FastRepairUsed { get { return new TelemetryValue<int>(sdk, "FastRepairUsed"); } }
+
+        public TelemetryValue<int> FastRepairAvailable { get { return new TelemetryValue<int>(sdk, "FastRepairAvailable"); } }
+
+        public TelemetryValue<int> BrakeABSactive { get { return new TelemetryValue<int>(sdk, "BrakeABSactive"); } }
+
+        public TelemetryValue<bool> dcStarter { get { return new TelemetryValue<bool>(sdk, "dcStarter"); } }
+
+        public TelemetryValue<bool> dcTractionControlToggle { get { return new TelemetryValue<bool>(sdk, "dcTractionControlToggle"); } }
+
+        public TelemetryValue<bool> dcPitSpeedLimiterToggle { get { return new TelemetryValue<bool>(sdk, "dcPitSpeedLimiterToggle"); } }
+
+        public TelemetryValue<bool> dcHeadlightFlash { get { return new TelemetryValue<bool>(sdk, "dcHeadlightFlash"); } }
+
+        public TelemetryValue<float> dpRFTireChange { get { return new TelemetryValue<float>(sdk, "dpRFTireChange"); } }
+
+        public TelemetryValue<float> dpLFTireChange { get { return new TelemetryValue<float>(sdk, "dpLFTireChange"); } }
+
+        public TelemetryValue<float> dpRRTireChange { get { return new TelemetryValue<float>(sdk, "dpRRTireChange"); } }
+
+        public TelemetryValue<float> dpLRTireChange { get { return new TelemetryValue<float>(sdk, "dpLRTireChange"); } }
+
+        public TelemetryValue<float> dpTireChange { get { return new TelemetryValue<float>(sdk, "dpTireChange"); } }
+
+        public TelemetryValue<float> dpFuelFill { get { return new TelemetryValue<float>(sdk, "dpFuelFill"); } }
+
+        public TelemetryValue<float> dpWindshieldTearoff { get { return new TelemetryValue<float>(sdk, "dpWindshieldTearoff"); } }
+
+        public TelemetryValue<float> dpFuelAddKg { get { return new TelemetryValue<float>(sdk, "dpFuelAddKg"); } }
+
+        public TelemetryValue<float> dpFastRepair { get { return new TelemetryValue<float>(sdk, "dpFastRepair"); } }
+
+        public TelemetryValue<float> dpWingFront { get { return new TelemetryValue<float>(sdk, "dpWingFront"); } }
+
+        public TelemetryValue<float> dcBrakeBias { get { return new TelemetryValue<float>(sdk, "dcBrakeBias"); } }
+
+        public TelemetryValue<float> dcDashPage { get { return new TelemetryValue<float>(sdk, "dcDashPage"); } }
+
+        public TelemetryValue<float> dcThrottleShape { get { return new TelemetryValue<float>(sdk, "dcThrottleShape"); } }
+
+        public TelemetryValue<float> dpPowerSteering { get { return new TelemetryValue<float>(sdk, "dpPowerSteering"); } }
+
+        public TelemetryValue<float> dcTractionControl { get { return new TelemetryValue<float>(sdk, "dcTractionControl"); } }
+
+        public TelemetryValue<float> dcTractionControl2 { get { return new TelemetryValue<float>(sdk, "dcTractionControl2"); } }
+
+        public TelemetryValue<float> dcABS { get { return new TelemetryValue<float>(sdk, "dcABS"); } }
+
+        public TelemetryValue<bool> dcDRSToggle { get { return new TelemetryValue<bool>(sdk, "dcDRSToggle"); } }
+
+        public TelemetryValue<float> dcMGUKDeployMode { get { return new TelemetryValue<float>(sdk, "dcMGUKDeployMode"); } }
+
+        public TelemetryValue<float> dcDiffPreload { get { return new TelemetryValue<float>(sdk, "dcDiffPreload"); } }
+
+        public TelemetryValue<float> dcDiffEntry { get { return new TelemetryValue<float>(sdk, "dcDiffEntry"); } }
+
+        public TelemetryValue<float> dcPeakBrakeBias { get { return new TelemetryValue<float>(sdk, "dcPeakBrakeBias"); } }
+
+        public TelemetryValue<int> DRS_Status { get { return new TelemetryValue<int>(sdk, "DRS_Status"); } }
+
+        public TelemetryValue<float> PowerMGU_K { get { return new TelemetryValue<float>(sdk, "PowerMGU_K"); } }
+
+        public TelemetryValue<float> TorqueMGU_K { get { return new TelemetryValue<float>(sdk, "TorqueMGU_K"); } }
+
+        public TelemetryValue<float> PowerMGU_H { get { return new TelemetryValue<float>(sdk, "PowerMGU_H"); } }
+
+        public TelemetryValue<float> EnergyERSBatteryPct { get { return new TelemetryValue<float>(sdk, "EnergyERSBatteryPct"); } }
+
+        public TelemetryValue<float> EnergyBatteryToMGU_KLap { get { return new TelemetryValue<float>(sdk, "EnergyBatteryToMGU_KLap"); } }
+
+        public TelemetryValue<float> EnergyMGU_KLapDeployPct { get { return new TelemetryValue<float>(sdk, "EnergyMGU_KLapDeployPct"); } }
+
+        public TelemetryValue<float> RFtempCL { get { return new TelemetryValue<float>(sdk, "RFtempCL"); } }
+
+        public TelemetryValue<float> RFtempCM { get { return new TelemetryValue<float>(sdk, "RFtempCM"); } }
+
+        public TelemetryValue<float> RFtempCR { get { return new TelemetryValue<float>(sdk, "RFtempCR"); } }
+
+        public TelemetryValue<float> RFwearL { get { return new TelemetryValue<float>(sdk, "RFwearL"); } }
+
+        public TelemetryValue<float> RFwearM { get { return new TelemetryValue<float>(sdk, "RFwearM"); } }
+
+        public TelemetryValue<float> RFwearR { get { return new TelemetryValue<float>(sdk, "RFwearR"); } }
+
+        public TelemetryValue<float> LFtempCL { get { return new TelemetryValue<float>(sdk, "LFtempCL"); } }
+
+        public TelemetryValue<float> LFtempCM { get { return new TelemetryValue<float>(sdk, "LFtempCM"); } }
+
+        public TelemetryValue<float> LFtempCR { get { return new TelemetryValue<float>(sdk, "LFtempCR"); } }
+
+        public TelemetryValue<float> LFwearL { get { return new TelemetryValue<float>(sdk, "LFwearL"); } }
+
+        public TelemetryValue<float> LFwearM { get { return new TelemetryValue<float>(sdk, "LFwearM"); } }
+
+        public TelemetryValue<float> LFwearR { get { return new TelemetryValue<float>(sdk, "LFwearR"); } }
+
+        public TelemetryValue<float> RRtempCL { get { return new TelemetryValue<float>(sdk, "RRtempCL"); } }
+
+        public TelemetryValue<float> RRtempCM { get { return new TelemetryValue<float>(sdk, "RRtempCM"); } }
+
+        public TelemetryValue<float> RRtempCR { get { return new TelemetryValue<float>(sdk, "RRtempCR"); } }
+
+        public TelemetryValue<float> RRwearL { get { return new TelemetryValue<float>(sdk, "RRwearL"); } }
+
+        public TelemetryValue<float> RRwearM { get { return new TelemetryValue<float>(sdk, "RRwearM"); } }
+
+        public TelemetryValue<float> RRwearR { get { return new TelemetryValue<float>(sdk, "RRwearR"); } }
+
+        public TelemetryValue<float> LRtempCL { get { return new TelemetryValue<float>(sdk, "LRtempCL"); } }
+
+        public TelemetryValue<float> LRtempCM { get { return new TelemetryValue<float>(sdk, "LRtempCM"); } }
+
+        public TelemetryValue<float> LRtempCR { get { return new TelemetryValue<float>(sdk, "LRtempCR"); } }
+
+        public TelemetryValue<float> LRwearL { get { return new TelemetryValue<float>(sdk, "LRwearL"); } }
+
+        public TelemetryValue<float> LRwearM { get { return new TelemetryValue<float>(sdk, "LRwearM"); } }
+
+        public TelemetryValue<float> LRwearR { get { return new TelemetryValue<float>(sdk, "LRwearR"); } }
+
+        public TelemetryValue<int> LapBestLap { get { return new TelemetryValue<int>(sdk, "LapBestLap"); } }
+
+        public TelemetryValue<float> LapBestLapTime { get { return new TelemetryValue<float>(sdk, "LapBestLapTime"); } }
+
+        public TelemetryValue<float> LapLastLapTime { get { return new TelemetryValue<float>(sdk, "LapLastLapTime"); } }
+
+        public TelemetryValue<float> LapCurrentLapTime { get { return new TelemetryValue<float>(sdk, "LapCurrentLapTime"); } }
+
+        public TelemetryValue<float> LapDeltaToBestLap { get { return new TelemetryValue<float>(sdk, "LapDeltaToBestLap"); } }
+
+        public TelemetryValue<float> LapDeltaToBestLap_DD { get { return new TelemetryValue<float>(sdk, "LapDeltaToBestLap_DD"); } }
+
+        public TelemetryValue<bool> LapDeltaToBestLap_OK { get { return new TelemetryValue<bool>(sdk, "LapDeltaToBestLap_OK"); } }
+
+        public TelemetryValue<float> LapDeltaToOptimalLap { get { return new TelemetryValue<float>(sdk, "LapDeltaToOptimalLap"); } }
+
+        public TelemetryValue<float> LapDeltaToOptimalLap_DD { get { return new TelemetryValue<float>(sdk, "LapDeltaToOptimalLap_DD"); } }
+
+        public TelemetryValue<bool> LapDeltaToOptimalLap_OK { get { return new TelemetryValue<bool>(sdk, "LapDeltaToOptimalLap_OK"); } }
+
+        public TelemetryValue<float> LapDeltaToSessionBestLap { get { return new TelemetryValue<float>(sdk, "LapDeltaToSessionBestLap"); } }
+
+        public TelemetryValue<float> LapDeltaToSessionBestLap_DD { get { return new TelemetryValue<float>(sdk, "LapDeltaToSessionBestLap_DD"); } }
+
+        public TelemetryValue<bool> LapDeltaToSessionBestLap_OK { get { return new TelemetryValue<bool>(sdk, "LapDeltaToSessionBestLap_OK"); } }
+
+        public TelemetryValue<float> LapDeltaToSessionOptimalLap { get { return new TelemetryValue<float>(sdk, "LapDeltaToSessionOptimalLap"); } }
+
+        public TelemetryValue<float> LapDeltaToSessionOptimalLap_DD { get { return new TelemetryValue<float>(sdk, "LapDeltaToSessionOptimalLap_DD"); } }
+
+        public TelemetryValue<bool> LapDeltaToSessionOptimalLap_OK { get { return new TelemetryValue<bool>(sdk, "LapDeltaToSessionOptimalLap_OK"); } }
+
+        public TelemetryValue<float> LapDeltaToSessionLastlLap { get { return new TelemetryValue<float>(sdk, "LapDeltaToSessionLastlLap"); } }
+
+        public TelemetryValue<float> LapDeltaToSessionLastlLap_DD { get { return new TelemetryValue<float>(sdk, "LapDeltaToSessionLastlLap_DD"); } }
+
+        public TelemetryValue<bool> LapDeltaToSessionLastlLap_OK { get { return new TelemetryValue<bool>(sdk, "LapDeltaToSessionLastlLap_OK"); } }
     }
 }
